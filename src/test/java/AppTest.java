@@ -29,6 +29,8 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("BAND TRACKER");
   }
 }
+
+WILL ADD ONCE I MAP OUT VTL FILE PATH
   // @Test
   // public void bandIsCreatedTest() {
   //
