@@ -1,28 +1,114 @@
-public class LeapYear {
+import java.util.HashMap;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+import static spark.Spark.*;
+
+public class App {
   public static void main(String[] args) {
-    String layout = "templates/layout.vtl";
-
-    get("/", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/home.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    get("/output", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/output.vtl");
-
-      Blank blankList = new Blank(); /* >THIS CREATES A INSTANCE THE MAIN CLASS - "blankList" could be named anything<-*/
-
-      String userInputString = request.queryParams("???"); /*<--whatever you have in you "name" tag in the home.vtl
-      (string (on top) is how the user input is going to come out as)String userInput = request.queryParams("???")<- whatever you have in you "name" tag in the home.vtl*/
-      Integer userInputNumber = Integer.parseInt(userInput);
-      /*Integer userInput = Integer.parseInt(???);in case you want to convert the user input into a number, from "1234" to 1234.*/
-
-      ArrayList myResults = blankList.runBlank(userInputNumber);/* (blankList is the instance of my main class that I created up top)(runBlank is my method)*/
-
-      model.put("result", myResults);/* ("results" is being linked from the output.vtl file)*/
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-  }  
+  //   staticFileLocation("/public");
+  //   String layout = "templates/layout.vtl";
+  //
+  //   get("/", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     model.put("template", "templates/index.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   get("/categories", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     model.put("categories", Category.all());
+  //     model.put("template", "templates/categories.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   get("/tasks", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     model.put("tasks", Task.all());
+  //     model.put("template", "templates/tasks.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   get("/tasks/:id", (request,response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     Task task = Task.find(Integer.parseInt(request.params("id")));
+  //     model.put("task", task);
+  //     model.put("allCategories", Category.all());
+  //     model.put("template", "templates/task.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   get("/categories/:id", (request,response) ->{
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     Category category = Category.find(Integer.parseInt(request.params("id")));
+  //     model.put("category", category);
+  //     model.put("allTasks", Task.all());
+  //     model.put("template", "templates/category.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   post("/tasks", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     String description = request.queryParams("description");
+  //     Task newTask = new Task(description);
+  //     newTask.save();
+  //     response.redirect("/tasks");
+  //     return null;
+  //   });
+  //
+  //   post("/categories", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     String name = request.queryParams("name");
+  //     Category newCategory = new Category(name);
+  //     newCategory.save();
+  //     response.redirect("/categories");
+  //     return null;
+  //   });
+  //
+  //   post("/add_tasks", (request, response) -> {
+  //     int taskId = Integer.parseInt(request.queryParams("task_id"));
+  //     int categoryId = Integer.parseInt(request.queryParams("category_id"));
+  //     Category category = Category.find(categoryId);
+  //     Task task = Task.find(taskId);
+  //     category.addTask(task);
+  //     response.redirect("/categories/" + categoryId);
+  //     return null;
+  //   });
+  //
+  //   post("/add_categories", (request, response) -> {
+  //     Integer taskId = Integer.parseInt(request.queryParams("task_id"));
+  //     Integer categoryId = Integer.parseInt(request.queryParams("category_id"));
+  //     Category category = Category.find(categoryId);
+  //     Task task = Task.find(taskId);
+  //     task.addCategory(category);
+  //     response.redirect("/tasks/" + taskId);
+  //     return null;
+  //   });
+  //
+  //   get("/categories/:category_id/tasks/:id", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     Category category = Category.find(Integer.parseInt(request.params(":category_id")));
+  //     Task task = Task.find(Integer.parseInt(request.params(":id")));
+  //     model.put("category", category);
+  //     model.put("task", task);
+  //     model.put("template", "templates/task.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  //   post("/categories/:category_id/tasks/:id", (request, response) -> {
+  //     HashMap<String, Object> model = new HashMap<String, Object>();
+  //     Task task = Task.find(Integer.parseInt(request.params("id")));
+  //     String description = request.queryParams("description");
+  //     Category category = Category.find(Integer.parseInt(request.params(":category_id")));
+  //
+  //     //task object: task's id, description
+  //     //category via url param :category_id
+  //
+  //
+  //     task.update(description);
+  //     String url = String.format("/categories/%d/tasks/%d", category.getId(), task.getId());
+  //     response.redirect(url);
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+  //
+  }
 }
