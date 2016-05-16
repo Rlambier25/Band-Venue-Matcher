@@ -1,37 +1,44 @@
-# _{Application Name}_
+# Band Tracker
 
-#### _{Brief description of application}, {Date of current version}_
+#### _{Will track Bands and their tour locations}, {5/15/2016}_
 
-#### By _**{List of contributors}**_
+#### By _**{Reed Lambier}**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_{This application will allow users to enter a band of their choice. After entry is complete than can create and attach a venue to their band. This creates a list, or history, of shows for the band.  }_
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* Clone repository: https://github.com/77paradox77/Java-Week4-codeReview-.git
+* Inside terminal: cd desktop  --->   then --->   cd Java-Week4-codeReview-
+* Install Gradle
+* Create database band_tracker in your terminals PSQL
+* In another window of terminal launch POSTGRES
+* open terminal and run the command "psql band_tracker < bandtracker.sql" to import the database
+* enter "gradle run" in the terminal. EX: Java-Week4-codeReview-$ gradle run
+* In your browser go to "localhost:4567"
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+Currently it is possible to save empty entries. This is currently underway of being fixed. Also, CSS construction is currently pending.
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+If you have any questions or concerns please feel free to contact me at: Rlambier46@gmail.com
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+* Java
+* HTML5
+* CSS3
+* Spark
+* Velocity Template Engine
+* SQL
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*{Licensed under MIT}*
 
-Copyright (c) 2015 **_{List of contributors or company name}_**
+Copyright (c) 2016 Reed Lambier 
