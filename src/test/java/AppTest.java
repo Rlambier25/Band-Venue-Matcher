@@ -97,13 +97,25 @@ public class AppTest extends FluentTest {
   public void bandNameIsUpdated() {
     Band testBand = new Band("Portugal.");
     testBand.save();
-    String url = String.format("http://localhost:4567/tasks/%d", testBand.getId());
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
     goTo(url);
-    click("a", withText("Edit this task"));
+    click("a", withText("Edit this band"));
     fill("#name").with("Portugal. The Man");
     submit(".btn");
     goTo(url);
     assertThat(pageSource()).contains("Portugal. The Man");
   }
+
+  @Test
+  public void bandIsDeleted() {
+    Band testBand = new Band("Macklmore");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    submit("#delete");
+    goTo(url);
+    assertThat(pageSource()).contains("$band.getName()");
+  }
+
 
 }
