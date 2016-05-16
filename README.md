@@ -13,16 +13,16 @@ This application will allow users to enter a band of their choice. After entry i
 * Clone repository: https://github.com/77paradox77/Java-Week4-codeReview-.git
 * Inside terminal: cd desktop  --->   then --->   cd Java-Week4-codeReview-
 * Install Gradle
-* Create database band_tracker in your terminals PSQL
+* Create database band_tracker in your terminals PSQL using 'CREATE DATABASE band_tracker;'
 * In another window of terminal launch POSTGRES
-* open terminal and run the command "psql band_tracker < bandtracker.sql" to import the database
+* open terminal and run the command "psql band_tracker < band_tracker.sql" to import the database
 * enter "gradle run" in the terminal. EX: Java-Week4-codeReview-$ gradle run
 * In your browser go to "localhost:4567"
 
 
 ## Known Bugs
 
-Currently it is possible to save empty entries. This is currently underway of being fixed. Also, CSS construction is currently pending.
+Also, CSS construction is currently pending. Using bootstrap field to not take empty fields. 
 
 ## Support and contact details
 

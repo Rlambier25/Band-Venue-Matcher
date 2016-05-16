@@ -12,7 +12,7 @@
 <h4>Add a band to this venue:</h4>
 
 <form action='/add_bands' method='post'>
-  <input id="venue_id" name="venue_id" type="hidden" value="$venue.getId()">
+  <input id="venue_id" name="venue_id" type="hidden" value="$venue.getId()" required>
   <label for="band_id">Select a band</label>
   <select id='band_id' name='band_id' type='text'>
     #foreach($band in $allBands)

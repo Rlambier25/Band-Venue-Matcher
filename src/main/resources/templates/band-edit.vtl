@@ -2,7 +2,7 @@
 
 <form action="/bands/$band.getId()" method="post">
   <label for="name">New name</label>
-  <input id="name" name="name" type="text" value="$band.getName()">
+  <input id="name" name="name" type="text" value="$band.getName()" required>
   <button type="submit" class="btn btn-success">Update</button>
 </form>
 
