@@ -26,7 +26,7 @@ public class App {
     model.put("venues", Venue.all());
     model.put("template", "templates/venues.vtl");
     return new ModelAndView(model, layout);
-  } new VelocityTemplateEngine());
+  }, new VelocityTemplateEngine());
 
   post("/venues", (request, response) -> {
     String name = request.queryParams("name");
@@ -61,6 +61,26 @@ public class App {
     model.put("template", "template/band.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
+
+  post("/add_venues", (request, response) ->{
+    int venueId = Integer.parseInt(request.queryParams("venue_id"));
+    int bandId = Integer.parseInt(request.queryParams("band_id"));
+    Band band = Band.find(bandId);
+    Venue venue = Venue.find(venueId);
+    band.addVenue(venue);
+    response.redirect("/bands/" + bandId);
+    return null;
+  });
+
+  post("/add_bands", (request, response) -> {
+    int venueId = Integer.parseInt(request.queryParams("venue_id"));
+    int bandId = Integer.parseInt(request.queryParams("band_id"));
+    Band band = Band.find(bandId);
+    Venue venue = Venue.find(venueId);
+    venue.addBand(band);
+    response.redirect("/venues/" + venueId);
+    return null;
+  })
 
   }
 }

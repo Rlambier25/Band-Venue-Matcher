@@ -29,68 +29,68 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("BAND TRACKER");
   }
 
-  // @Test
-  // public void bandIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Categories"));
-  //   fill("#name").with("Household chores");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  //
-  // @Test
-  // public void taskIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Tasks"));
-  //   fill("#description").with("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void bandShowPageDisplaysName() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  //
-  // @Test
-  // public void taskShowPageDisplaysDescription() {
-  //   Task testTask = new Task("Mow the lawn");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void taskIsAddedToCategory() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Task testTask = new Task("Mow the lawn");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   fillSelect("#task_id").withText("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void bandIsAddedToTask() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Task testTask = new Task("Mow the lawn");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
-  //   goTo(url);
-  //   fillSelect("#band_id").withText("Household chores");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
+  @Test
+  public void bandIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Bands"));
+    fill("#name").with("Add Band");
+    submit(".btn");
+    assertThat(pageSource()).contains("Nirvana");
+  }
+
+  @Test
+  public void venueIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Venues"));
+    fill("#description").with("Moda Center");
+    submit(".btn");
+    assertThat(pageSource()).contains("Moda Center");
+  }
+
+  @Test
+  public void bandShowPageDisplaysName() {
+    Band testBand = new Band("Smashing Pumpkins");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Smashing Pumpkins");
+  }
+
+  @Test
+  public void venueShowPageDisplaysName() {
+    Venue testVenue = new Venue("Tacoma Dome");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Tacoma Dome");
+  }
+
+  @Test
+  public void venueIsAddedToBand() {
+    Band testBand = new Band("Smashing Pumpkins");
+    testBand.save();
+    Venue testVenue = new Venue("Tacoma Dome");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    fillSelect("#venue_id").withText("Tacoma Dome");
+    submit(".btn");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("Tacoma Dome");
+  }
+
+  @Test
+  public void bandIsAddedToVenue() {
+    Band testBand = new Band("Bob Marley");
+    testBand.save();
+    Venue testVenue = new Venue("Mow the lawn");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    fillSelect("#band_id").withText("Bob Marley");
+    submit(".btn");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("Bob Marley");
+  }
 
 }
