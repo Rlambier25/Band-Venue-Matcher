@@ -33,7 +33,7 @@ public class AppTest extends FluentTest {
   public void venueIsCreatedTest() {
     goTo("http://localhost:4567/");
     click("a", withText("Venues"));
-    fill("#name").with("Add Venue");
+    fill("#name").with("Moda Center");
     submit(".btn");
     assertThat(pageSource()).contains("Moda Center");
   }
@@ -91,6 +91,19 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("<li>");
     assertThat(pageSource()).contains("Bob Marley");
+  }
+
+  @Test
+  public void bandNameIsUpdated() {
+    Band testBand = new Band("Portugal.");
+    testBand.save();
+    String url = String.format("http://localhost:4567/tasks/%d", testBand.getId());
+    goTo(url);
+    click("a", withText("Edit this task"));
+    fill("#name").with("Portugal. The Man");
+    submit(".btn");
+    goTo(url);
+    assertThat(pageSource()).contains("Portugal. The Man");
   }
 
 }

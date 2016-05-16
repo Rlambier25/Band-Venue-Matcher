@@ -20,9 +20,6 @@ public class BandsTest extends FluentTest{
     return webDriver;
   }
 
-  @ClassRule
-  public static ServerRule server = new ServerRule();
-
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
@@ -96,14 +93,23 @@ public class BandsTest extends FluentTest{
     assertEquals(1, savedVenue.size());
   }
 
-  // @Test
-  // public void delete_deletesAllVenuesAndBandAssociations() {
-  //   Band myBand = new Band("Beirut");
-  //   myBand.save();
-  //   Venue myVenue = new Venue("Anthony Hall");
-  //   myVenue.save();
-  //   myBand.addVenue(myVenue);
-  //   myBand.delete();
-  //   assertEquals(0, myVenue.getBand().size());
-  // }
+  @Test
+  public void update_updatesBandName_true() {
+    Band myBand = new Band("fidy");
+    myBand.save();
+    myBand.update("fidy cent");
+    assertEquals("fidy cent", Band.find(myBand.getId()).getName());
+  }
+
+  @Test
+  public void delete_deletesAllBandsAndVenuesAssociations() {
+    Venue myVenue = new Venue("The Gorge");
+    myVenue.save();
+    Band myBand = new Band("Kid Cudi");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    myBand.delete();
+    assertEquals(0, Band.all().size());
+    assertEquals(0, myVenue.getBands().size());
+  }
 }
