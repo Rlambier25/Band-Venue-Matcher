@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Band {
   private int id;
   private String name;
-  // HOPING TO ADD GENRE & MUSIC STYLE LATER ON PERHAPS AFTER CODE REVIEW
+  // HOPING TO ADD GENRE & MUSIC STYLE LATER ON PERHAPS AFTER CODEREVIEW
+  // ALSO CSS AND STYLING WILL BE ADDED TO THIS PROJECT FOR FUTURE PORTFOLIO
 
   public Band(String name) {
     this.name=name;

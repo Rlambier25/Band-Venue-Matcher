@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Venue {
   private int id;
   private String name;
-  // HOPING TO ADD DESCRIPTION & ADDRESSES LATER ON
+  // HOPING TO ADD DESCRIPTION & ADDRESSES FOR VENUES LATER ON
 
   public Venue(String name) {
     this.name = name;

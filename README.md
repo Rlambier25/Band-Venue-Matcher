@@ -1,12 +1,12 @@
 # Band Tracker
 
-#### _{Will track Bands and their tour locations}, {5/15/2016}_
+#### Will track Bands and their tour locations}, {5/15/2016}
 
-#### By _**{Reed Lambier}**_
+#### By Reed Lambier
 
 ## Description
 
-_{This application will allow users to enter a band of their choice. After entry is complete than can create and attach a venue to their band. This creates a list, or history, of shows for the band.  }_
+This application will allow users to enter a band of their choice. After entry is complete than can create and attach a venue to their band. This creates a list, or history, of shows for the band.  
 
 ## Setup/Installation Requirements
 
@@ -41,4 +41,4 @@ If you have any questions or concerns please feel free to contact me at: Rlambie
 
 *{Licensed under MIT}*
 
-Copyright (c) 2016 Reed Lambier 
+Copyright (c) 2016 Reed Lambier
