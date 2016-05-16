@@ -1,9 +1,9 @@
 <h1>$band.getName()</h1>
 
 #if($band.getVenues())
-  <p>All the venues for this band are listed here:</p>
+  <p>Here are the venues for this band:</p>
   <ul>
-    #foreach($venue in band.getVenues())
+    #foreach($venue in $band.getVenues())
       <li>$venue.getName()</li>
     #end
   </ul>
@@ -13,7 +13,7 @@
 
 <form action='/add_venues' method='post'>
   <input id="band_id" name="band_id" type="hidden" value="$band.getId()">
-  <label for="avenue_id">Select a venue</label>
+  <label for="venue_id">Select a venue</label>
   <select id='venue_id' name='venue_id' type='text'>
     #foreach($venue in $allVenues)
       <option value="$venue.getId()"> $venue.getName() </option>
@@ -24,4 +24,4 @@
 
 <p><a href="/bands/$band.getId()/edit">Edit this band</a></p>
 
-<p><href ="/">Home</a></p>
+<p><a href="/">Home</a></p>

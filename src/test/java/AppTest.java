@@ -30,21 +30,21 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void bandIsCreatedTest() {
-    goTo("http://localhost:4567/");
-    click("a", withText("Bands"));
-    fill("#name").with("Add Band");
-    submit(".btn");
-    assertThat(pageSource()).contains("Nirvana");
-  }
-
-  @Test
   public void venueIsCreatedTest() {
     goTo("http://localhost:4567/");
     click("a", withText("Venues"));
-    fill("#description").with("Moda Center");
+    fill("#name").with("Add Venue");
     submit(".btn");
     assertThat(pageSource()).contains("Moda Center");
+  }
+
+  @Test
+  public void bandIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Bands"));
+    fill("#name").with("Cranberries");
+    submit(".btn");
+    assertThat(pageSource()).contains("Cranberries");
   }
 
   @Test
