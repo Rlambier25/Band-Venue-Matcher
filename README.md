@@ -16,13 +16,25 @@ This application will allow users to enter a band of their choice. After entry i
 * Create database band_tracker in your terminals PSQL using 'CREATE DATABASE band_tracker;'
 * In another window of terminal launch POSTGRES
 * open terminal and run the command "psql band_tracker < band_tracker.sql" to import the database
-* enter "gradle run" in the terminal. EX: Java-Week4-codeReview-$ gradle run
+
+## Setup Tables in Database for creating entire DATABASE from scratch
+
+* enter into terminal: $psql
+* enter the following: \c band_tracker;
+* #CREATE TABLE bands (id serial PRIMARY KEY, name varchar);
+* #CREATE TABLE venues (id serial PRIMARY KEY, name varchar);
+* #CREATE TABLE bands_venues(id serial PRIMARY KEY, band_id int, venue_id int);
+
+## Now that our DATABASE's and tables are setup we can now make our test database and launch gradle.
+
+* #CREATE DATABASE band_tracker_test WITH TEMPLATE band_tracker;
+* enter "$ gradle run" in the terminal. EX: Java-Week4-codeReview-$ gradle run
 * In your browser go to "localhost:4567"
 
 
 ## Known Bugs
 
-Also, CSS construction is currently pending. Using bootstrap field to not take empty fields. 
+Also, CSS construction is currently pending. Using bootstrap field to not take empty fields.
 
 ## Support and contact details
 
