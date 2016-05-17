@@ -1,6 +1,6 @@
 # Band Tracker
 
-#### Will track Bands and their tour locations}, {5/15/2016}
+#### Will track Bands and their tour locations, {5/15/2016}
 
 #### By Reed Lambier
 
@@ -10,17 +10,19 @@ This application will allow users to enter a band of their choice. After entry i
 
 ## Setup/Installation Requirements
 
+* Inside terminal: cd desktop
 * Clone repository: https://github.com/77paradox77/Java-Week4-codeReview-.git
-* Inside terminal: cd desktop  --->   then --->   cd Java-Week4-codeReview-
-* Install Gradle
-* Create database band_tracker in your terminals PSQL using 'CREATE DATABASE band_tracker;'
-* In another window of terminal launch POSTGRES
-* open terminal and run the command "psql band_tracker < band_tracker.sql" to import the database
+* Inside terminal: cd Java-Week4-codeReview-
+* Install Gradle(if it isn't already installed)
+* In another window of terminal launch POSTGRES and leave it running
 
-## Setup Tables in Database for creating entire DATABASE from scratch
 
-* enter into terminal: $psql
-* enter the following: \c band_tracker;
+## Setup Database and tables for creating entire DATABASE from scratch
+
+* enter into terminal: $ psql
+* #CREATE DATABASE band_tracker;
+* Go back into BASH and type: "$ psql band_tracker < band_tracker.sql" to import the database
+* In psql enter the following: \c band_tracker;
 * #CREATE TABLE bands (id serial PRIMARY KEY, name varchar);
 * #CREATE TABLE venues (id serial PRIMARY KEY, name varchar);
 * #CREATE TABLE bands_venues(id serial PRIMARY KEY, band_id int, venue_id int);
